@@ -1,31 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Menu() {
+  const [artistsData, setArtistsData] = useState(null);
+
+  // Fetch all artists data
+  const fetchArtistsData = () => {
+    axios
+      .get("https://run.mocky.io/v3/3cab6663-7cd8-4365-b8a6-4a1d89305f6a")
+      .then((response) => setArtistsData(response.data.all_artists))
+      .catch((error) => console.err(error));
+  };
+
+  useEffect(fetchArtistsData, []);
+
   return (
     <ul className="menu">
-      {data.all_artists.map((artist) => (
-        <li>
-          <Link to={`/${artist.artist_uuid}`}>{artist.artist_name}</Link>
-        </li>
-      ))}
+      {artistsData &&
+        artistsData.map((artist) => (
+          <li key={artist.artist_uuid}>
+            <Link to={`/${artist.artist_uuid}`}>{artist.artist_name}</Link>
+          </li>
+        ))}
     </ul>
   );
 }
-
-const data = {
-  all_artists: [
-    {
-      artist_name: "Umek",
-      artist_uuid: "7c46c4ce-09c0-4f95-b4e1-84ae10bd24ab",
-    },
-    {
-      artist_name: "Ariana Grande",
-      artist_uuid: "563d07d4-1ff7-45b4-85cc-9c9bed8ac9f2",
-    },
-    {
-      artist_name: "BLACKPINK",
-      artist_uuid: "67d55c78-9eac-4968-a4c9-0d1131213df0",
-    },
-  ],
-};
