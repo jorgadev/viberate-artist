@@ -1,5 +1,7 @@
 import React from "react";
 
+import Menu from "./Menu";
+
 export default function Header() {
   return (
     <header className="header">
@@ -17,9 +19,7 @@ export default function Header() {
               <button className="btn btn-menu more">More</button>
             </li>
           </ul>
-
-          <ul className="menu">
-            <li>
+          {/* <li>
               <a href="">Artist 1</a>
             </li>
             <li>
@@ -27,8 +27,8 @@ export default function Header() {
             </li>
             <li>
               <a href="">Artist 3</a>
-            </li>
-          </ul>
+            </li> */}
+          <Menu />
         </nav>
       </div>
     </header>

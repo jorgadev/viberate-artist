@@ -1,8 +1,12 @@
 import React from "react";
+import { Route } from "react-router-dom";
+
+import Artist from "./Artist";
 
 export default function Main() {
   return (
     <main className="main">
+      <Route path="/:artistId" component={Artist} />
       <section className="section section-artist-detail trending claimed">
         <div className="page">
           <div className="col visual">
