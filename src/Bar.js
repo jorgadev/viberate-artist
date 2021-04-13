@@ -2,9 +2,11 @@ import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 
 export default function Bar({ popularity }) {
+  // Data that will be passed as keys and props for bar
   const data = [];
   let dataObj = {};
 
+  // Custom theme for bar
   const theme = {
     labels: {
       text: { fontSize: 12, fontWeight: "bold" },
@@ -17,6 +19,7 @@ export default function Bar({ popularity }) {
     },
   };
 
+  // For each popularity create single bar
   popularity.forEach((pop) => {
     dataObj = {
       id: pop.city,
