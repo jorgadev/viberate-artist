@@ -6,7 +6,9 @@ export default function Bar({ popularity }) {
   let dataObj = {};
 
   const theme = {
-    labels: { text: { fontSize: 12, fontWeight: "bold" } },
+    labels: {
+      text: { fontSize: 12, fontWeight: "bold" },
+    },
     grid: {
       line: {
         stroke: "white",
@@ -26,24 +28,26 @@ export default function Bar({ popularity }) {
 
   return (
     <ResponsiveBar
-      height={150}
       layout="horizontal"
       data={data}
       indexBy={(_index) => _index.value + ""}
       keys={["value"]}
       colors={["#000"]}
       colorBy="indexValue"
-      groupMode="stacked"
+      groupMode="grouped"
       enableGridX={false}
       enableGridY={true}
       borderRadius={1}
       label={(_label) => _label.data.id}
       padding={0.9}
-      labelFormat={(d) => <tspan y={-10}>{d}</tspan>}
+      labelFormat={(d) => (
+        <tspan x={0} y={-10} textAnchor="start">
+          {d}
+        </tspan>
+      )}
       labelTextColor="black"
-      motionStiffness={170}
-      motionDamping={26}
       theme={theme}
+      animate={false}
     />
   );
 }
