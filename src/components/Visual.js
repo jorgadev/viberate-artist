@@ -1,15 +1,9 @@
-import React from "react";
-
-export default function Image({ url }) {
+function Visual({ imageURL }) {
   return (
     <div className="col visual">
       <figure
-        // style={{
-        //   backgroundImage:
-        //     "url(./images/placeholders/placeholder-200x200.png)",
-        // }}
         style={{
-          backgroundImage: `url(${url})`,
+          backgroundImage: `url(${imageURL})`,
         }}
       >
         <figcaption>
@@ -19,3 +13,5 @@ export default function Image({ url }) {
     </div>
   );
 }
+
+export default Visual;

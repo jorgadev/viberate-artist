@@ -1,12 +1,15 @@
-import React from "react";
 import { Route } from "react-router-dom";
 
+import Home from "./Home";
 import Artist from "./Artist";
 
-export default function Main() {
+function Main() {
   return (
     <main className="main">
-      <Route path="/:artistId" component={Artist} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/:artistId" component={Artist} />
     </main>
   );
 }
+
+export default Main;

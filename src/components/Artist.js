@@ -1,39 +1,30 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import useFetch from "../hooks/useFetch";
 
-import Image from "./Image";
 import Info from "./Info";
+import Visual from "./Visual";
 import Stats from "./Stats";
 
-export default function Artist({ match }) {
+function Artist({ match }) {
   const artistId = match.params.artistId;
-  const [artistData, setArtistData] = useState(null);
 
-  // Fetch single artist data
-  const fetchArtistData = () => {
-    axios
-      .get(`https://run.mocky.io/v3/${artistId}`)
-      .then((response) => setArtistData(response.data.data))
-      .catch((error) => console.err(error));
-  };
-
-  useEffect(() => {
-    fetchArtistData();
-  }, [artistId]);
+  // Get artist by id using useFetch custom hook
+  const { data } = useFetch(`https://run.mocky.io/v3/${artistId}`);
+  const artistData = data?.data;
 
   return (
     <section className="section section-artist-detail trending claimed">
       {artistData && (
         <div className="page">
-          <Image url={artistData.image} />
+          <Visual imageURL={artistData.image} />
           <div className="col-wrapper">
             <Info artistData={artistData} />
             <Stats popularity={artistData.popularity} />
           </div>
-
           <button className="btn btn-scroll-down">Scroll down</button>
         </div>
       )}
     </section>
   );
 }
+
+export default Artist;

@@ -1,13 +1,11 @@
-import React from "react";
-
 import Menu from "./Menu";
 
-export default function Header() {
+function Header() {
   return (
     <header className="header">
       <div className="page">
         <a href="/" className="logo">
-          <img src="./exercise-01_files/logo-v.svg" alt="Viberate" /> Viberate
+          <img src="/images/logo-v.svg" alt="Viberate" /> Viberate
         </a>
         <nav className="navigation-primary">
           <ul className="menu-sys">
@@ -24,3 +22,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;
