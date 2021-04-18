@@ -2,6 +2,8 @@
 
 > React code test for Viberate company
 
+![](header.png)
+
 ## Instructions
 
 Instructions: [here](https://github.com/bste/html-css-js-naloga?fbclid=IwAR2jSjBEnwjtxbbUdsBXaMqqvMMMsOm8BQi0Jm5zrRnXvop71is-LUWLtSc)
